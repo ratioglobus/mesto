@@ -1,0 +1,21 @@
+.header {
+  display: block;
+  max-width: 880px;
+  margin: 45px auto 0;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  padding: 0;
+
+}
+
+/* Такой padding у header будет в диапазоне от 320 до 768 пикселей */
+@media (max-width: 768px) {
+  .header {
+    padding: 28px 24px 0 24px;
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    padding: 16px 16px 0 16px;
+  }
+}
