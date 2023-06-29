@@ -1,0 +1,9 @@
+.profile__avatar {
+  background: url(../../../images/profile-photo.jpg), lightgray 50% / cover no-repeat;
+  margin: 0 30px 0 0;
+  padding: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  justify-content: start;
+}

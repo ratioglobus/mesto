@@ -1,0 +1,8 @@
+.elements__item {
+  margin: 0;
+  right: 0;
+  position: relative;
+  background: #FFF;
+  color: black;
+  border-radius: 10px;
+}

@@ -1,7 +1,6 @@
-.profile {
-  max-width: 880px;
+.elements__content {
   padding: 0;
-  margin: 40px auto 50px;
+  margin: 25px 20px 25px 21px;
   display: flex;
   align-items: center;
   justify-content: space-between;
