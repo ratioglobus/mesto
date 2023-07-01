@@ -3,3 +3,9 @@
   flex-direction: column;
   margin: 0 18px 0 0;
 }
+
+@media (max-width: 510px){
+  .profile__author {
+    margin: 0;
+  }
+}

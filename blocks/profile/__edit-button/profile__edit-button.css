@@ -5,9 +5,18 @@
   background-color: #000;
   border: none;
   padding: 0;
-  margin-top: -21px;
+  margin-left: 18px;
 }
 
 .profile__edit-button:hover {
   cursor: pointer;
+  opacity: 0.6;
+}
+
+@media (max-width: 510px){
+  .profile__edit-button {
+    margin-left: 10px;
+    background-repeat: no-repeat;
+    background-size: 18px;
+  }
 }

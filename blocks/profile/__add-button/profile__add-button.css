@@ -10,8 +10,18 @@
   background-color: #000;
   border: 2px solid #FFF;
   border-radius: 2px;
+  margin: 0 0 0 auto;
 }
 
 .profile__add-button:hover {
   cursor: pointer;
+  opacity: 0.6;
+}
+
+@media (max-width: 910px){
+  .profile__add-button {
+      margin: 0;
+      background-size: 16px;
+      width: 282px;
+  }
 }

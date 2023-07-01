@@ -4,27 +4,15 @@
   padding: 0;
 }
 
-@media (max-width: 1024px) {
-  .footer {
-    max-width: 928px;
+/* @media (max-width: 910px) {
+  .header {
+    padding: 38px 15px 39px 15px;
   }
-}
+} */
 
-@media (max-width: 768px) {
+@media (max-width: 910px) {
   .footer {
-    padding: 0 24px 24px 24px;
-  }
-}
-
-@media (max-width: 720px) {
-  .footer {
-    flex-direction: column;
-    align-items: start;
-  }
-}
-
-@media (max-width: 320px) {
-  .footer {
-    padding: 0 16px 0 16px;
+    margin: 0 auto 36px;
+    padding: 0px 19px 0 19px;
   }
 }

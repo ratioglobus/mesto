@@ -4,3 +4,14 @@
   color: #FFF;
   font-size: 18px;
 }
+
+@media (max-width: 910px) {
+  .profile__about {
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 36px;
+  }
+}

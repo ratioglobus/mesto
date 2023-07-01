@@ -3,20 +3,20 @@
   justify-content: space-between;
   align-items: center;
   max-width: 880px;
-  margin: 45px auto 0;
+  margin: 0 auto;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-  padding: 0 0 41px 0;
+  padding: 45px 0 41px 0;
 }
 
-/* Такой padding у header будет в диапазоне от 320 до 768 пикселей */
-@media (max-width: 768px) {
+/* Такой padding у header будет в диапазоне от 420 до 910 пикселей */
+@media (max-width: 910px) {
   .header {
-    padding: 28px 24px 0 24px;
+    padding: 38px 15px 39px 15px;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 420px) {
   .header {
-    padding: 16px 16px 0 16px;
+    padding: 28px 27px 31px 27px;
   }
 }

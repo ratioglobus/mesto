@@ -4,5 +4,11 @@
   margin: 40px auto 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+@media (max-width: 910px) {
+  .profile {
+      flex-direction: column;
+      margin: 42px auto 36px;
+  }
 }
