@@ -12,3 +12,8 @@
   left: 100%;
   bottom: 100%;
 }
+
+.popup__close-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
