@@ -6,3 +6,9 @@
   color: #000000;
   position: relative;
 }
+
+@media (max-width: 550px){
+  .popup__container {
+      max-width: 282px;
+  }
+}
