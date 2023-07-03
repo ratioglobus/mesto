@@ -5,7 +5,6 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  justify-content: start;
 }
 
 @media (max-width: 910px) {
