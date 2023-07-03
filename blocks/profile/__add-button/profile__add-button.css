@@ -1,6 +1,6 @@
 .profile__add-button {
+  margin: 0 0 0 auto;
   padding: 0;
-  margin: 0;
   width: 150px;
   height: 50px;
   background-image: url(../../../images/add-button.svg);
@@ -10,7 +10,6 @@
   background-color: #000;
   border: 2px solid #FFF;
   border-radius: 2px;
-  margin: 0 0 0 auto;
 }
 
 .profile__add-button:hover {
