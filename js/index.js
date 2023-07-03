@@ -9,8 +9,8 @@ let popupSaveButton = popup.querySelector('.popup__save-button');
 
 let valueProfileName = profile.querySelector('.profile__name');
 let valueProfileAbout = profile.querySelector('.profile__about');
-let valuePopupName = popup.querySelector('.popup__input-value_name');
-let valuePopupAbout = popup.querySelector('.popup__input-value_about');
+let valuePopupName = popup.querySelector('.popup__input_value_name');
+let valuePopupAbout = popup.querySelector('.popup__input_value_about');
 
 
 function openPopup() {
