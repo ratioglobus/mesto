@@ -13,7 +13,11 @@
 
 **Использованные технологии**
 
+<<<<<<< HEAD
 - Vanile JS
+=======
+- Vanilla JS
+>>>>>>> develop
 - HTML5/CSS3
 - Grid/flex
 - Media запросы (адаптивная вертска)
