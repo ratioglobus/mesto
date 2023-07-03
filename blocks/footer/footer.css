@@ -4,12 +4,6 @@
   padding: 0;
 }
 
-/* @media (max-width: 910px) {
-  .header {
-    padding: 38px 15px 39px 15px;
-  }
-} */
-
 @media (max-width: 910px) {
   .footer {
     margin: 0 auto 36px;
