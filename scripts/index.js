@@ -28,9 +28,9 @@ function handleFormSubmit (evt) {
     valueProfileName.textContent = valuePopupName.value;
     valueProfileAbout.textContent = valuePopupAbout.value;
     popupSaveButton.addEventListener('click', closedPopup);
+    closedPopup();
 }
 
-popupSaveButton.addEventListener('click', closedPopup);
 popupOpen.addEventListener('click', openPopup);
 popupClose.addEventListener('click', closedPopup);
 formElement.addEventListener('submit', handleFormSubmit);

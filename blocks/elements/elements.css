@@ -7,9 +7,16 @@
   grid-row-gap: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 910px) {
   .elements  {
-    margin: 0 auto 48px;
+    max-width: 780px;
     justify-content: center;
+  }
+}
+
+@media (max-width: 710px) {
+  .elements  {
+    max-width: 580px;
+    margin: 0 auto 48px;
   }
 }

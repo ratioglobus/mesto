@@ -2,9 +2,10 @@
   background: url(../../../images/profile-photo.jpg), lightgray 50% / cover no-repeat;
   margin: 0 30px 0 0;
   padding: 0;
-  width: 120px;
-  height: 120px;
+  min-width: 120px;
+  min-height: 120px;
   border-radius: 50%;
+  background-position: center;
 }
 
 @media (max-width: 910px) {

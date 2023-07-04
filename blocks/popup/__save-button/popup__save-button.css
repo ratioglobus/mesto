@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0 36px 37px;
   width: 358px;
-  height: 50px;
+  min-height: 50px;
   background-color: #000000;
   color: white;
   font-weight: 400;
@@ -21,7 +21,7 @@
   .popup__save-button {
     margin: 0 22px 25px;
     width: 238px;
-    height: 46px;
+    min-height: 46px;
     font-size: 14px;
     line-height: normal;
   }
