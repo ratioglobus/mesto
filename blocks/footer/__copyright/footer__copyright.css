@@ -11,8 +11,5 @@
 @media (max-width: 420px) {
   .footer__copyright {
     font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
   }
 }

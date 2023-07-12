@@ -3,15 +3,24 @@
   padding: 0;
   color: #FFF;
   font-size: 18px;
+  max-width: 90%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 910px) {
   .profile__about {
+    margin-bottom: 36px;
     text-align: center;
     font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 36px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .profile__about {
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
