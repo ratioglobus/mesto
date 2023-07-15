@@ -28,7 +28,19 @@
     </section>
 
     <section class="elements">
-      <div class="elements__item">
+
+      <template id="template-elements">
+        <div class="elements__item">
+          <img src="#" alt="#" class="elements__photo">
+          <div class="elements__content">
+            <h2 class="elements__place"></h2>
+            <button type="button" class="elements__like-button"></button>
+          </div>
+          <button type="button" class="elements__delete"></button>
+        </div>
+      </template>
+
+      <!-- <div class="elements__item">
         <img class="elements__photo" src="./images/hogwarts.jpg" alt="изображение замка Хогвартс">
         <div class="elements__content">
           <h3 class="elements__place">Хогвартс</h3>
@@ -74,7 +86,7 @@
           <h3 class="elements__place">Штормград</h3>
           <button type="button" class="elements__like-button"></button>
         </div>
-      </div>
+      </div> -->
     </section>
   </main>
 
@@ -93,6 +105,19 @@
       <button type="button" class="popup__close-button"></button>
     </div>
   </div>
+
+  <div class="popup popup-addimage">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form action="#" id="addimage-form" class="popup__form popup-addimage__form" method="POST" name="addimage-form">
+        <input type="text" name="nameaddimage" class="popup__input popup__input_value_name-newimage" required="" placeholder="Название" autocomplete="off">
+        <input type="url" name="about" class="popup__input popup__input_value_link-newimage" required="" placeholder="Ссылка на картинку" autocomplete="off">
+      </form>
+      <button type="submit" form="addimage-form" class="popup__save-button popup-addimage__save-button">Создать</button>
+      <button type="button" class="popup__close-button popup-addimage__close-button"></button>
+    </div>
+  </div>
+
   <script src="./scripts/index.js"></script>
 </body>
 </html>
