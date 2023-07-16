@@ -1,44 +1,30 @@
 
-let popup = document.querySelector('.popup');
-let formElement = document.querySelector('.popup__form');
-let popupClose = popup.querySelector('.popup__close-button');
-let popupSaveButton = popup.querySelector('.popup__save-button');
-
-let profile = document.querySelector('.profile');
-let popupOpen = profile.querySelector('.profile__edit-button');
-let valueProfileName = profile.querySelector('.profile__name');
-let valueProfileAbout = profile.querySelector('.profile__about');
-let valuePopupName = popup.querySelector('.popup__input_value_name');
-let valuePopupAbout = popup.querySelector('.popup__input_value_about');
-
-const initialCards = [
-  {
-    name: 'Хогвартс',
-    link: './images/hogwarts.jpg'
-  },
-  {
-    name: 'Ривенделл',
-    link: './images/rivendal.jpg'
-  },
-  {
-    name: 'Галактический город',
-    link: './images/galactik-city.jpg'
-  },
-  {
-    name: 'Новиград',
-    link: './images/novigrad.jpg'
-  },
-  {
-    name: 'Вайтран',
-    link: './images/whiterun.jpg'
-  },
-  {
-    name: 'Штормград',
-    link: './images/schtormgrad.jpg'
-  }
-];
+// открыть и закрыть попап редактирования профиля
+function openClosedPopupProfile() {
+  popupProfile.classList.toggle('popup_opened');
+  valuePopupName.value = valueProfileName.textContent;
+  valuePopupAbout.value = valueProfileAbout.textContent;
+};
 
 
+// отправить данные в форму редактирования профиля
+function editProfile (evt) {
+    evt.preventDefault();
+    valueProfileName.textContent = valuePopupName.value;
+    valueProfileAbout.textContent = valuePopupAbout.value;
+    openClosedPopupProfile();
+};
+
+
+// открыть и закрыть попап добавления новых фотографий
+function openClosedPopupAddImage() {
+  popupAddImage.classList.toggle('popup_opened');
+  valuePopupAddImageName.value = '';
+  valuePopupAddImageLink.value = '';
+};
+
+
+// загрузить первые фотографии на страницу из массива
 initialCards.forEach(function ({ name, link }) {
   const elementsList = document.querySelector('.elements');
   const elementsTemplate = document.querySelector('#template-elements').content;
@@ -51,23 +37,71 @@ initialCards.forEach(function ({ name, link }) {
 });
 
 
-function openPopup() {
-  popup.classList.add('popup_opened');
-  valuePopupName.value = valueProfileName.textContent;
-  valuePopupAbout.value = valueProfileAbout.textContent;
-}
+// добавить новую фотографию
+function createNewImage (evt) {
+  evt.preventDefault();
+  const elementsTemplate = document.querySelector('#template-elements').content;
+  const elementsList = document.querySelector('.elements');
+  const elementsItem = elementsTemplate.cloneNode(true);
 
-function closedPopup() {
-  popup.classList.remove('popup_opened');
-}
+  elementsItem.querySelector('.elements__place').textContent = valuePopupAddImageName.value;
+  elementsItem.querySelector('.elements__photo').src = valuePopupAddImageLink.value;
 
-function handleFormSubmit (evt) {
-    evt.preventDefault();
-    valueProfileName.textContent = valuePopupName.value;
-    valueProfileAbout.textContent = valuePopupAbout.value;
-    closedPopup();
-}
+  elementsList.prepend(elementsItem);
+  popupAddImage.classList.toggle('popup_opened');
 
-popupOpen.addEventListener('click', openPopup);
-popupClose.addEventListener('click', closedPopup);
-formElement.addEventListener('submit', handleFormSubmit);
+  // поставить лайк новым фотографиям
+  const likeButtons = document.querySelector('.elements__like-button');
+  likeButtons.addEventListener('click', function (evt) {
+    const eventTarget = evt.target;
+    eventTarget.classList.toggle('elements__like-button_active');
+  });
+
+  // удалить новую фотографию
+  const deleteButton = document.querySelector('.elements__delete');
+  deleteButton.addEventListener('click', function () {
+    const listItem = deleteButton.closest('.elements__item');
+    listItem.remove();
+  });
+};
+
+
+// поставить лайк всем остальным фотографиям
+const likeButtons = Array.from(document.querySelectorAll('.elements__like-button'));
+
+likeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.classList.toggle('elements__like-button_active');
+  });
+});
+
+
+// удалить загруженную фотографию из общего списка
+const deleteButtons = Array.from(document.querySelectorAll('.elements__delete'));
+
+deleteButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const listItem = button.closest('.elements__item');
+    listItem.remove();
+  });
+});
+
+
+// слушатели событий
+popupProfileOpen.addEventListener('click', openClosedPopupProfile);
+popupProfileClose.addEventListener('click', openClosedPopupProfile);
+formProfile.addEventListener('submit', editProfile);
+
+popupAddImageOpen.addEventListener('click', openClosedPopupAddImage);
+popupAddImageClose.addEventListener('click', openClosedPopupAddImage);
+formAddImage.addEventListener('submit', createNewImage);
+
+
+
+// открыть попап с фотографией
+
+
+
+
+// openPopupImage.addEventListener('click', openClosedPopupImage);
+// closePopupImageBtn.addEventListener('click', openClosedPopupImage);
