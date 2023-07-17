@@ -1,4 +1,41 @@
 
+// форма редактирования профиля
+const profile = document.querySelector('.profile');
+const formProfile = document.querySelector('.popup-profile__form');
+const popupProfile = document.querySelector('.popup-profile');
+const popupProfileOpen = profile.querySelector('.profile__edit-button');
+const popupProfileClose = popupProfile.querySelector('.popup__close-button');
+const popupSaveButton = popupProfile.querySelector('.popup__save-button');
+
+// значения попапа редактирования профиля
+const valuePopupName = popupProfile.querySelector('.popup__input_value_name');
+const valuePopupAbout = popupProfile.querySelector('.popup__input_value_about');
+const valueProfileName = profile.querySelector('.profile__name');
+const valueProfileAbout = profile.querySelector('.profile__about');
+
+// template блок
+const elements = document.querySelector('.elements');
+const elementsItem = document.querySelector('.elements__item');
+const elementsTemplate = document.querySelector('#template-elements');
+
+// форма добавления фотографий
+const popupAddImage = document.querySelector('.popup-addimage');
+const formAddImage = document.querySelector('.popup-addimage__form');
+const formPopupAddImage = document.querySelector('.popup-addimage__save-button');
+
+// значения попапа добавления фотографий
+const valuePopupAddImageName = document.querySelector('.popup__input_value_name-addimage');
+const valuePopupAddImageLink = document.querySelector('.popup__input_value_link-addimage');
+const popupAddImageOpen = document.querySelector('.profile__add-button');
+const popupAddImageClose = document.querySelector('.popup-addimage__close-button');
+
+// попап раскрытия фото
+const popupImages = document.querySelector('.popup-image');
+const imagePopupAbout = document.querySelector('.popup-image__about');
+const imagePopupImage = document.querySelector('.popup-image__img');
+const popupImagesClose = document.querySelector('.popup-image__close-button');
+
+
 // открыть и закрыть попап
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -31,22 +68,28 @@ function openPopupElements() {
 };
 
 
-// создать новый элемент с возможностью лайкнуть его и открыть
+// создать новый элемент с возможностью лайкнуть, удалить и открыть его
 function createElement({ name, link }) {
   const cloneElement = elementsTemplate.content.cloneNode(true);
   const elementsItem = cloneElement.querySelector('.elements__item');
+  const elementsItemImage = elementsItem.querySelector('.elements__photo');
 
   elementsItem.querySelector('.elements__place').textContent = name;
-  elementsItem.querySelector('.elements__photo').src = link;
-  elementsItem.querySelector('.elements__photo').alt = name;
+  elementsItemImage.src = link;
+  elementsItemImage.alt = name;
 
   const likeElementButton = elementsItem.querySelector('.elements__like-button');
   likeElementButton.addEventListener('click', function (event) {
     event.target.classList.toggle('elements__like-button_active');
   });
 
-  const openImagePopupElement = elementsItem.querySelector('.elements__photo');
-  openImagePopupElement.addEventListener('click', function () {
+  const deleteButton = elementsItem.querySelector('.elements__delete');
+  deleteButton.addEventListener('click', function () {
+    const listItem = deleteButton.closest('.elements__item');
+    listItem.remove();
+  });
+
+  elementsItemImage.addEventListener('click', function () {
     imagePopupAbout.textContent = name;
     imagePopupImage.src = link;
     imagePopupImage.alt = name;
@@ -72,27 +115,8 @@ function addNewElement(evt) {
   const elementsItem = createElement({ name, link });
 
   elements.prepend(elementsItem);
-
-  const deleteButtons = Array.from(document.querySelectorAll('.elements__delete'));
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const listItem = button.closest('.elements__item');
-      listItem.remove();
-    });
-  });
-
   closePopup(popupAddImage);
 };
-
-
-// удалить уже добавленный элемент
-const deleteButtons = Array.from(document.querySelectorAll('.elements__delete'));
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const listItem = button.closest('.elements__item');
-      listItem.remove();
-  });
-});
 
 
 // слушатели событий
