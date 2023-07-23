@@ -1,3 +1,4 @@
 .content {
   display: block;
+  min-height: 70vh;
 }
