@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.3s ease-in;
   align-items: center;
   justify-content: center;
   opacity: 0;
