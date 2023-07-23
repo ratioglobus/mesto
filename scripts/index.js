@@ -21,7 +21,7 @@ const elementsTemplate = document.querySelector('#template-elements');
 // форма добавления фотографий
 const popupAddImage = document.querySelector('.popup-addimage');
 const formAddImage = document.querySelector('.popup-addimage__form');
-const btnPopupGallerySave = document.querySelector('.popup-newimage__save-button');
+const btnPopupGallerySave = document.querySelector('.popup-addimage__save-button');
 
 // значения попапа добавления фотографий
 const valuePopupAddImageName = document.querySelector('.popup__input_value_name-addimage');
