@@ -1,14 +1,82 @@
 .elements__like-button {
-  padding-left: 16px;
+  --red: rgb(250, 50, 80);
+  position: relative;
   width: 22px;
   height: 19px;
-  background-image: url(../../../images/like-button.svg);
-  background-color: #fff;
-  background-repeat: no-repeat;
-  border: none;
 }
 
-.elements__like-button:hover {
+.elements__like-button .like {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
   cursor: pointer;
-  opacity: 0.5;
+}
+
+.elements__like-button .checkmark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.elements__like-button .outline,
+.elements__like-button .filled {
+  fill: var(--red);
+  position: absolute;
+}
+
+.elements__like-button .filled {
+  animation: kfr-filled 0.8s;
+  display: none;
+}
+
+.elements__like-button .celebrate {
+  position: absolute;
+  animation: kfr-celebrate 0.6s;
+  animation-fill-mode: forwards;
+  display: none;
+}
+
+.elements__like-button .poly {
+  stroke: var(--red);
+  fill: var(--red);
+}
+
+.elements__like-button .like:checked ~ .checkmark .filled {
+  display: block
+}
+
+.elements__like-button .like:checked ~ .checkmark .celebrate {
+  display: block
+}
+
+@keyframes kfr-filled {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes kfr-celebrate {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+    display: none;
+  }
 }
