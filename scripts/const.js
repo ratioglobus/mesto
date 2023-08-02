@@ -10,7 +10,7 @@ const initialCards = [
     link: './images/rivendal.jpg'
   },
   {
-    name: 'Галактика',
+    name: 'Галактический город',
     link: './images/galactik-city.jpg'
   },
   {
