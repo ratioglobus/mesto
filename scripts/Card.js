@@ -8,6 +8,9 @@ class Card {
     this._link = link;
     this._openImagePopup = OpenPopups;
     this._template = templateSelector;
+    this._newCard = this._getTemplate();
+    this._cardPhoto = this._newCard.querySelector('.elements__photo');
+    this._cardPlace = this._newCard.querySelector('.elements__place');
   };
 
   // клонируем и возвращаем общий template элемент
@@ -18,10 +21,9 @@ class Card {
 
   // собираем данные одного элемента
   _setInfo() {
-    const elementsItem = this._newCard.querySelector('.elements__item');
-    elementsItem.querySelector('.elements__place').textContent = this._name;
-    elementsItem.querySelector('.elements__photo').src = this._link;
-    elementsItem.querySelector('.elements__photo').alt = this._name;
+    this._cardPlace.textContent = this._name;
+    this._cardPhoto.src = this._link;
+    this._cardPhoto.alt = this._name;
   };
 
   // устанавливаем слушатели элемента
@@ -29,7 +31,7 @@ class Card {
     const btnDeleteCard = this._newCard.querySelector('.elements__delete');
     btnDeleteCard.addEventListener('click', () => this._handleClickDelete(btnDeleteCard));
     this._newCard.querySelector('.elements__like-button').addEventListener('click', (evt) => this._handleClickLike(evt));
-    this._newCard.querySelector('.elements__photo').addEventListener('click', () => this._handleOpenImage());
+    this._cardPhoto.addEventListener('click', () => this._handleOpenImage());
   };
 
   // добавляем лайк элементу
@@ -54,7 +56,6 @@ class Card {
 
   // создаем итоговый элемент (публичный метод)
   createCard() {
-    this._newCard = this._getTemplate();
     this._setInfo();
     this._setListeners();
 

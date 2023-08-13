@@ -30,9 +30,6 @@ function closePopupToEsc(evt) {
   };
 };
 
-// загрузить из массива на страницу первые фото, используя шаблон createElement
-initialCards.forEach(item => { createCard(item, CONFIG) });
-
 // установить слушатели событий
 function setEventListenersOverlay() {
   const overlayList = Array.from(document.querySelectorAll('.popup'));
@@ -71,20 +68,27 @@ function openPopupElements() {
   openPopup(popupAddImage);
 };
 
-// создать новый элемент с возможностью лайкнуть, удалить и открыть его
-function createCard({ name, link }, CONFIG) {
-  const elementsItem = new Card({ name, link }, CONFIG.templateSelector);
-  elements.prepend(elementsItem.createCard());
-
-  return elementsItem;
+// создаем и возвращаем новый экземляр класса Card
+function createCard(item) {
+  const card = new Card(item, CONFIG.templateSelector);
+  return card.createCard();
 };
+
+// рендерим новый экземляр Card на страницу
+const renderCard = (item) => {
+  const card = createCard(item);
+  elements.prepend(card);
+};
+
+// загружаем из массива на страницу первые фото
+initialCards.forEach(item => {renderCard(item)});
 
 // добавить новый элемент
 function addNewElement(evt) {
   evt.preventDefault();
   const name = valuePopupAddImageName.value;
   const link = valuePopupAddImageLink.value;
-  createCard({ name, link }, CONFIG);
+  renderCard({ name, link }, CONFIG);
 
   closePopup(popupAddImage);
 };
@@ -98,10 +102,11 @@ popupElementValidated.enableValidation();
 
 // слушатели событий
 
-// закрыть каждый из попапов
-popupProfileClose.addEventListener('click', () => closePopup(popupProfile));
-popupAddImageClose.addEventListener('click', () => closePopup(popupAddImage));
-popupImagesClose.addEventListener('click', () => closePopup(popupImages));
+// закрываем каждый из попапов
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 // открыть попап с формой и отредактировать профиль
 popupProfileOpen.addEventListener('click', openPopupProfile);

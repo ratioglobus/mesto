@@ -35,3 +35,6 @@ const popupImages = document.querySelector('.popup-image');
 const imagePopupAbout = document.querySelector('.popup-image__about');
 const imagePopupImage = document.querySelector('.popup-image__img');
 const popupImagesClose = document.querySelector('.popup-image__close-button');
+
+// находим все крестики проекта по универсальному селектору
+const closeButtons = document.querySelectorAll('.popup__close-button');
