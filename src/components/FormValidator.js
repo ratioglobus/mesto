@@ -1,6 +1,4 @@
-
-// объект валидации формы
-class FormValidator {
+export default class FormValidator {
   constructor(CONFIG, formElement) {
     this._formElement = formElement;
     this._inputSelector = CONFIG.inputSelector;
@@ -14,7 +12,6 @@ class FormValidator {
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   };
 
-  // включает валидацию формы
   enableValidation() {
     this._formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
@@ -22,7 +19,6 @@ class FormValidator {
     this._setEventListeners();
   };
 
-  // установить все слушатели
   _setEventListeners() {
     this.toggleButtonState();
 
@@ -34,7 +30,6 @@ class FormValidator {
     });
   };
 
-  // показать ошибки в форме
   _showInputError(inputElement, errorMessage) {
     const errorElements = this._formElement.querySelector(`#error-${inputElement.id}`);
     inputElement.classList.add(this._inputErrorClass);
@@ -42,7 +37,6 @@ class FormValidator {
     errorElements.textContent = errorMessage;
   };
 
-  // скрыть ошибки в форме
   _hideInputError(inputElement) {
     const errorElements = this._formElement.querySelector(`#error-${inputElement.id}`);
     inputElement.classList.remove(this._inputErrorClass);
@@ -50,14 +44,6 @@ class FormValidator {
     errorElements.textContent = ' ';
   };
 
-  // внешний метод очистки форм
-  cleanInputErrors() {
-    this._inputList.forEach((inputElement) => {
-      this._hideInputError(inputElement);
-    });
-  };
-
-  // проверить инпуты на валидность
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
@@ -66,14 +52,28 @@ class FormValidator {
     };
   };
 
-  // вернуть инпут
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   };
 
-  // если инпут валидный, показываем кнопку, иначе делаем ее неактивной
+  _activeButtonSave() {
+    this._buttonElement.classList.remove(this._activeButtonClass);
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+  };
+
+   _inactiveButtonSave() {
+    this._buttonElement.classList.add(this._activeButtonClass);
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+  };
+
+  cleanInputErrors() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+  };
+
   toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._activeButtonSave();
@@ -81,18 +81,4 @@ class FormValidator {
       this._inactiveButtonSave();
     }
   };
-
-   // сделать кнопку формы активной
-   _activeButtonSave() {
-    this._buttonElement.classList.remove(this._activeButtonClass);
-    this._buttonElement.classList.add(this._inactiveButtonClass);
-  };
-
-   // сделать кнопку формы неактивной
-   _inactiveButtonSave() {
-    this._buttonElement.classList.add(this._activeButtonClass);
-    this._buttonElement.classList.remove(this._inactiveButtonClass);
-  };
 };
-
-export default FormValidator;
