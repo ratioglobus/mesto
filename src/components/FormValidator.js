@@ -1,12 +1,12 @@
 export default class FormValidator {
-  constructor(CONFIG, formElement) {
+  constructor(config, formElement) {
     this._formElement = formElement;
-    this._inputSelector = CONFIG.inputSelector;
-    this._errorClass = CONFIG.errorClass;
-    this._inputErrorClass = CONFIG.inputErrorClass;
-    this._submitButtonSelector = CONFIG.submitButtonSelector;
-    this._activeButtonClass = CONFIG.activeButtonClass;
-    this._inactiveButtonClass = CONFIG.inactiveButtonClass;
+    this._inputSelector = config.inputSelector;
+    this._errorClass = config.errorClass;
+    this._inputErrorClass = config.inputErrorClass;
+    this._submitButtonSelector = config.submitButtonSelector;
+    this._activeButtonClass = config.activeButtonClass;
+    this._inactiveButtonClass = config.inactiveButtonClass;
 
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);

@@ -18,8 +18,8 @@ import { initialCards, CONFIG } from "../utils/const.js";
 
 function openPopupElements() {
   popupElementValidated.cleanInputErrors();
-	popupElementValidated.toggleButtonState();
-  withNewImage.open();
+  popupElementValidated.toggleButtonState();
+  popupWithNewImage.open();
 };
 
 
@@ -28,13 +28,13 @@ function openPopupProfile() {
   valuePopupName.value = name;
   valuePopupAbout.value = about;
   popupProfileValidated.cleanInputErrors();
-	popupProfileValidated.toggleButtonState();
-  withProfile.open();
+  popupProfileValidated.toggleButtonState();
+  popupWithProfile.open();
 };
 
 
 function openPopupImage(name, link) {
-  withImage.open({ name, link });
+  popupWithImage.open({ name, link });
 };
 
 
@@ -66,20 +66,20 @@ const cardsList = new Section({
 
 const userInfo = new UserInfo(CONFIG);
 
-const withProfile = new PopupWithForm({ selectorPopup: CONFIG.popupProfileSelector, submitCallback: editProfile });
+const popupWithProfile = new PopupWithForm({ selectorPopup: CONFIG.popupProfileSelector, submitCallback: editProfile });
 
-const withNewImage = new PopupWithForm({ selectorPopup: CONFIG.popupNewImageSelector, submitCallback: addNewCard });
+const popupWithNewImage = new PopupWithForm({ selectorPopup: CONFIG.popupNewImageSelector, submitCallback: addNewCard });
 
-const withImage = new PopupWithImage(CONFIG.popupImageSelector);
+const popupWithImage = new PopupWithImage(CONFIG.popupImageSelector);
 
 const popupProfileValidated = new FormValidator(CONFIG, popupProfile);
 
 const popupElementValidated = new FormValidator(CONFIG, popupAddImage);
 
 
-withProfile.setEventListeners();
-withNewImage.setEventListeners();
-withImage.setEventListeners();
+popupWithProfile.setEventListeners();
+popupWithNewImage.setEventListeners();
+popupWithImage.setEventListeners();
 
 popupProfileValidated.enableValidation();
 popupElementValidated.enableValidation();
