@@ -1,38 +1,3 @@
-import Schtormgrad from '../images/schtormgrad.jpg';
-import Whiterun from '../images/whiterun.jpg';
-import Novigrad from '../images/novigrad.jpg';
-import GalactikCity from '../images/galactik-city.jpg';
-import Rivendal from '../images/rivendal.jpg';
-import Hogwarts from '../images/hogwarts.jpg';
-
-
-export const initialCards = [
-  {
-    name: 'Штормград',
-    link: Schtormgrad,
-  },
-  {
-    name: 'Вайтран',
-    link: Whiterun,
-  },
-  {
-    name: 'Новиград',
-    link: Novigrad,
-  },
-  {
-    name: 'Галактический город',
-    link: GalactikCity,
-  },
-  {
-    name: 'Ривенделл',
-    link: Rivendal,
-  },
-  {
-    name: 'Хогвартс',
-    link: Hogwarts,
-  }
-];
-
 export const CONFIG = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -47,5 +12,15 @@ export const CONFIG = {
   activeButtonClass: 'popup__save-button',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible',
-  templateSelector: '#template-elements'
+  templateSelector: '#template-elements',
+  popupConfirmSelector: '.popup-deleteConfirm',
+  popupNewAvatarSelector: '.popup-newAvatar',
+  profileAvatarSelector: '.profile__avatar-img',
+  apiConfig: {
+    url: 'https://mesto.nomoreparties.co/v1/cohort-74',
+    headers: {
+      authorization: '95644a66-d73f-4c68-b73b-d19d376bbf1f',
+      'Content-Type': 'application/json',
+    }
+  }
 };

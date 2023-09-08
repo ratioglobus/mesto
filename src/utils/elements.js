@@ -5,3 +5,5 @@ export const valuePopupName = popupProfile.querySelector('.popup__input_value_na
 export const valuePopupAbout = popupProfile.querySelector('.popup__input_value_about');
 export const popupAddImage = document.querySelector('.popup-addimage');
 export const popupAddImageOpen = document.querySelector('.profile__add-button');
+export const popupNewAvatar = document.querySelector('.popup-newAvatar');
+export const popupNewAvatarButton = document.querySelector('.profile__avatar-button');

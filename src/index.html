@@ -16,13 +16,18 @@
 
   <main class="content">
     <section class="profile">
-      <div class="profile__avatar"></div>
+      <div class="profile__avatar">
+        <button type="button" class="profile__avatar-button"></button>
+        <img class="profile__avatar-img"
+          src="https://images.kinorium.com/movie/shot/241359/w1500_48549715.jpg"
+          alt="Аватар профиля">
+      </div>
       <div class="profile__author">
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button type="button" class="profile__edit-button"></button>
         </div>
-        <p class="profile__about">Исследователь океана</p>
+        <p class="profile__about"></p>
       </div>
       <button type="button" class="profile__add-button"></button>
     </section>
@@ -33,7 +38,10 @@
           <img class="elements__photo" src="#" alt="#" >
           <div class="elements__content">
             <h2 class="elements__place"></h2>
-            <button type="button" class="elements__like-button"></button>
+            <div class="elements__likes">
+              <button type="button" class="elements__like-button"></button>
+              <p class="elements__likes-count"></p>
+            </div>
           </div>
           <button type="button" class="elements__delete"></button>
         </div>
@@ -44,6 +52,22 @@
   <footer class="footer">
     <p class="footer__copyright">© 2023 Popov Ivan </p>
   </footer>
+
+  <div class="popup popup-newAvatar">
+    <div class="popup__container">
+      <button type="button" class="popup__close-button popup-newAvatar__close-button"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form novalidate action="#" id="newAvatar-form" class="popup__form popup-newAvatar__form" method="POST"
+        name="newAvatar-form">
+
+        <input type="url" id="linkNewAvatar" name="linkNewAvatar" class="popup__input popup__input_value_link-newAvatar"
+          required placeholder="Ссылка на картинку" autocomplete="off">
+
+        <span class="popup__error-message" id="error-linkNewAvatar"></span>
+      </form>
+      <button type="submit" form="newAvatar-form" class="popup__save-button popup-newAvatar__save-button">Сохранить</button>
+    </div>
+  </div>
 
   <div class="popup popup-profile">
     <div class="popup__container">
@@ -84,6 +108,17 @@
       <img src="#" alt="#" class="popup-image__img">
       <p class="popup-image__about"></p>
       <button type="button" class="popup__close-button popup-image__close-button"></button>
+    </div>
+  </div>
+
+  <div class="popup popup-deleteConfirm">
+    <div class="popup__container">
+      <button type="button" class="popup__close-button popup-deleteConfirm__close-button"></button>
+      <h3 class="popup__title popup-deleteConfirm__title">Вы уверены?</h3>
+      <form novalidate action="#" id="deleteConfirm-form" class="popup__form popup-deleteConfirm__form" method="POST"
+      name="deleteConfirm-form">
+      <button type="submit" form="deleteConfirm-form" class="popup__save-button popup-deleteConfirm__save-button">Да</button>
+    </form>
     </div>
   </div>
 
