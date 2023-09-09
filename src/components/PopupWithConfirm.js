@@ -11,7 +11,7 @@ export default class PopupWithConfirm extends Popup {
     if(status){
       this._btnSave.textContent = 'Сохранение...';
     } else {
-      this._btnSave.textContent = this._btnSaveText;
+      this._btnSave.textContent = 'Да';
     }
   };
 
@@ -26,4 +26,5 @@ export default class PopupWithConfirm extends Popup {
       this._handleSubmitCallback();
     });
   };
-}
+};
+

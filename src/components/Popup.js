@@ -7,7 +7,7 @@ export default class Popup {
 
   _getPopup() {
     return document.querySelector(this._selector);
-  }
+  };
 
   open() {
     this._popup.classList.add('popup_opened');

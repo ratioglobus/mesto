@@ -18,12 +18,11 @@ export default class PopupWithForm extends Popup {
     });
 
     return this._values;
-  }
+  };
 
   _handleSubmit(evt) {
     evt.preventDefault();
     this._submitCallback(this._getInputValues());
-    this.close();
   };
 
   setEventListeners() {

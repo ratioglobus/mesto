@@ -64,6 +64,8 @@ function editNewAvatar(formData) {
   .changeUserAvatar(formData)
   .then((data) => {
     userInfo.setUserUrlAvatar(data.avatar);
+  })
+  .then(() => {
     popupWithNewAvatar.close();
   })
   .catch((err) => {console.log(err)})
@@ -79,6 +81,8 @@ function editProfile(formData) {
   .changeUserInfo(formData)
   .then((data) => {
     userInfo.setUserInfo(data);
+  })
+  .then(() => {
     popupWithProfile.close();
   })
   .catch((err) => {console.log(err)})
@@ -140,6 +144,8 @@ function addNewCard(formData) {
   .createCard(formData)
   .then((data) => {
     cardsList.setPrependItem(createCard(data, data.owner._id));
+  })
+  .then(() => {
     popupWithNewImage.close();
   })
   .catch((err) => {console.log(err)})
